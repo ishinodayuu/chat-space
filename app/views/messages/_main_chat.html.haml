@@ -1,0 +1,42 @@
+.chat-main
+  .chat-main__group-info
+    .group-namelist
+      .group-name
+        test
+      %ul.member-list
+        Member:
+        %li.member
+        yuu
+    .group-edit
+      = link_to('Edit', class: "edit")
+
+  .chat-main__message-list
+    .message-box
+      .message-info
+        .user-name
+          ishinoda
+        .date
+          2020年8月14日 11時45分
+      .message
+        %p.message-content
+          aaa
+    .message-box
+      .message-info
+        .user-name
+          ishinoda
+        .date
+          2020年8月14日 11時45分
+      .message
+        %p.message-content
+          aaa
+
+  .chat-main__message-form
+    %form.form
+      .form__contents
+        %input{type:"text", placeholder:"type a message", class:"input-content"}
+          %label{class: "input-box__image"}
+            = icon('fas', 'image')
+            %input{type: "file", class: "hidden"}
+      %input{type:"submit", value:"send", class:"commit"}
+  
+
