@@ -58,6 +58,7 @@
   height: calc(100vh - 100px);
   padding: 0 20px;
   overflow: scroll;
+  color: #fff;
   .group{
     font-size: 15px;
     color: #ffffff;
@@ -165,6 +166,7 @@
     width: 100%;
     background-color: #fff;
     position: relative;
+    display: flex;
   }
 }
 
@@ -184,7 +186,7 @@
   right: 10px;
 }
 
-.commit{
+.Form__submit{
   background-color: #38aef0;
   border: none;
   color: #fff;
@@ -198,4 +200,8 @@
 }
 a {
   color: white;
+}
+
+.edit{
+  color:  #38aef0;
 }

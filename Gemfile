@@ -1,4 +1,6 @@
 source 'https://rubygems.org'
+gem 'carrierwave'
+gem 'mini_magick'
 gem 'devise'
 gem 'pry-rails'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }

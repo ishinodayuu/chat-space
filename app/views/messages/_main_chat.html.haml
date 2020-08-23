@@ -2,41 +2,27 @@
   .chat-main__group-info
     .group-namelist
       .group-name
-        test
+        = @group.name
       %ul.member-list
         Member:
         %li.member
-        yuu
+        - @group.users.each do |users|
+          =users.name
     .group-edit
-      = link_to('Edit', class: "edit")
+      = link_to 'edit', edit_group_path(@group) ,class: 'edit'
 
   .chat-main__message-list
-    .message-box
-      .message-info
-        .user-name
-          ishinoda
-        .date
-          2020年8月14日 11時45分
-      .message
-        %p.message-content
-          aaa
-    .message-box
-      .message-info
-        .user-name
-          ishinoda
-        .date
-          2020年8月14日 11時45分
-      .message
-        %p.message-content
-          aaa
+    = render @messages
 
   .chat-main__message-form
-    %form.form
+    = form_with model: [@group, @message], html: {class: "form"}, local: true do |f|
       .form__contents
-        %input{type:"text", placeholder:"type a message", class:"input-content"}
-          %label{class: "input-box__image"}
-            = icon('fas', 'image')
-            %input{type: "file", class: "hidden"}
-      %input{type:"submit", value:"send", class:"commit"}
-  
+        = f.text_field :content, class: 'input-content', placeholder: 'type a message'
+        = f.label :image, class: 'input-box__image' do
+          = icon('far', 'image', class: 'Form__icon')
+          = f.file_field :image, class: 'hidden'
+      = f.submit 'Send', class: 'Form__submit'
+
+
+
 
