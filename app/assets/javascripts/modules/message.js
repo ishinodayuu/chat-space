@@ -1,8 +1,8 @@
 $(function(){
   function buildHTML(message){
-
     if (message.image) {
-      let html = `<div class="message-box">
+      let html =         
+      `<div class="message-box" data-message-id=${message.id}>
       <div class="message-info">
       <div class="user-name">
       ${message.user_name}
@@ -19,7 +19,8 @@ $(function(){
       </div>`
       return html;
     } else {
-      let html = `<div class="message-box">
+      let html = 
+      `<div class="message-box" data-message-id=${message.id}>
       <div class="message-info">
       <div class="user-name">
       ${message.user_name}
@@ -37,12 +38,9 @@ $(function(){
       </div>`
       return html;
     };
-    
   }
-
-
   $('.form').on('submit', function(e){
-    e.preventDefault()
+    e.preventDefault();
     let formData = new FormData(this);
     let url = $(this).attr('action');
     $.ajax({
@@ -55,15 +53,14 @@ $(function(){
     })
     .done(function(data){
       let html = buildHTML(data);
-      $('.chat-main__message-list').append(html);
+      $('.chat-main__message-list').append(html);      
       $('form')[0].reset();
       $('.chat-main__message-list').animate({ scrollTop: $('.chat-main__message-list')[0].scrollHeight});
-      $('.Form__submit').prop("disabled", false);      
+      $('.Form__submit').prop("disabled", false);
     })
-    
     .fail(function() {
       alert("メッセージ送信に失敗しました");
       $('.Form__submit').prop("disabled", false);
+    });
   });
-  })
 });
